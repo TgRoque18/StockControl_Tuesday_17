@@ -79,7 +79,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Icons\add.png" />
+    <Content Include="Icons\delete.png" />
+    <Content Include="Icons\editar.png" />
+    <Content Include="Icons\estoque.png" />
+    <Content Include="Icons\log.png" />
+    <Content Include="Icons\pesquisar.png" />
+    <Content Include="Icons\produto.png" />
+    <Content Include="Icons\profile.png" />
+    <Content Include="Icons\salvar.png" />
+    <Content Include="Icons\user.png" />
+    <Content Include="Icons\voltar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
