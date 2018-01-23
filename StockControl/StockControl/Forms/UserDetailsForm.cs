@@ -1,5 +1,4 @@
-﻿using StockControl.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,28 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StockControl
+namespace StockControl.Forms
 {
-    public partial class Home : Form
+    public partial class UserDetailsForm : Form
     {
-        public Home()
+        public UserDetailsForm()
         {
             InitializeComponent();
         }
 
-        private void pbxUser_Click(object sender, EventArgs e)
+      
+
+        private void pbxBack_Click(object sender, EventArgs e)
         {
             UserAllForms userAllForms = new UserAllForms();
             userAllForms.Show();
             this.Hide();
         }
-
-        private void pbxLog_Click(object sender, EventArgs e)
-        {
-            LogForm logForm = new LogForm();
-            logForm.Show();
-            this.Hide();
-        }
-
     }
 }
