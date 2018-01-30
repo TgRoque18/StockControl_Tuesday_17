@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Class\Category.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="Forms\CategoryAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoryAllForm.Designer.cs">
+      <DependentUpon>CategoryAllForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CategoryDatailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CategoryAllForm.resx">
+      <DependentUpon>CategoryAllForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryDatailsForm.resx">
       <DependentUpon>CategoryDatailsForm.cs</DependentUpon>
     </EmbeddedResource>

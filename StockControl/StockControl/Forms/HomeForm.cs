@@ -32,5 +32,9 @@ namespace StockControl
             this.Hide();
         }
 
+        private void pbxProduct_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
