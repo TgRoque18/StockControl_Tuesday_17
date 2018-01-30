@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace StockControl.Class
 {
-    public class Category
+    public class Log
     {
-        private int id;
-        private string name;
-        private bool active;
+        private string id;
+        private string description;
+        private DateTime data;
 
-        public int Id
+        public string Id
         {
             get
             {
@@ -25,29 +25,29 @@ namespace StockControl.Class
             }
         }
 
-        public string Name
+        public string Description
         {
             get
             {
-                return name;
+                return description;
             }
 
             set
             {
-                name = value;
+                description = value;
             }
         }
 
-        public bool Active
+        public DateTime Data
         {
             get
             {
-                return active;
+                return data;
             }
 
             set
             {
-                active = value;
+                data = value;
             }
         }
     }
