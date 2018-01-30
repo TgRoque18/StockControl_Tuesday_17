@@ -95,6 +95,7 @@
             this.pbxUserProfile.Size = new System.Drawing.Size(49, 50);
             this.pbxUserProfile.TabIndex = 4;
             this.pbxUserProfile.TabStop = false;
+         
             // 
             // pbxLog
             // 

@@ -78,6 +78,18 @@
     <Compile Include="Forms\UserDetailsForm.Designer.cs">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserProfileAllForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileAllForms.Designer.cs">
+      <DependentUpon>UserProfileAllForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserProfileDetailsForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileDetailsForms.Designer.cs">
+      <DependentUpon>UserProfileDetailsForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
@@ -101,6 +113,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserDetailsForm.resx">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileAllForms.resx">
+      <DependentUpon>UserProfileAllForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileDetailsForms.resx">
+      <DependentUpon>UserProfileDetailsForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

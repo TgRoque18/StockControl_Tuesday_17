@@ -32,5 +32,6 @@ namespace StockControl
             this.Hide();
         }
 
+       
     }
 }
