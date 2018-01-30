@@ -54,6 +54,7 @@
             this.pbxProduct.Size = new System.Drawing.Size(47, 50);
             this.pbxProduct.TabIndex = 0;
             this.pbxProduct.TabStop = false;
+            this.pbxProduct.Click += new System.EventHandler(this.pbxProduct_Click);
             // 
             // pbxCategory
             // 
