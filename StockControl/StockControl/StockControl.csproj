@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Category.cs" />
+    <Compile Include="Class\Log.cs" />
+    <Compile Include="Class\User.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="Forms\CategoryAllForm.cs">
       <SubType>Form</SubType>
