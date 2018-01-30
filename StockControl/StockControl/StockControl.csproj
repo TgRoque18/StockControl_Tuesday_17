@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Class\Category.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="Forms\CategoryAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoryAllForm.Designer.cs">
+      <DependentUpon>CategoryAllForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CategoryDatailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,18 @@
     <Compile Include="Forms\UserDetailsForm.Designer.cs">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserProfileAllForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileAllForms.Designer.cs">
+      <DependentUpon>UserProfileAllForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserProfileDetailsForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileDetailsForms.Designer.cs">
+      <DependentUpon>UserProfileDetailsForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +117,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CategoryAllForm.resx">
+      <DependentUpon>CategoryAllForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryDatailsForm.resx">
       <DependentUpon>CategoryDatailsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserDetailsForm.resx">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileAllForms.resx">
+      <DependentUpon>UserProfileAllForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileDetailsForms.resx">
+      <DependentUpon>UserProfileDetailsForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
