@@ -32,7 +32,7 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblActive = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.tbxAmount = new System.Windows.Forms.TextBox();
+            this.tbxPrice = new System.Windows.Forms.TextBox();
             this.cbxActive = new System.Windows.Forms.CheckBox();
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.pbxDelete = new System.Windows.Forms.PictureBox();
@@ -76,12 +76,12 @@
             this.tbxName.Size = new System.Drawing.Size(143, 20);
             this.tbxName.TabIndex = 3;
             // 
-            // tbxAmount
+            // tbxPrice
             // 
-            this.tbxAmount.Location = new System.Drawing.Point(107, 92);
-            this.tbxAmount.Name = "tbxAmount";
-            this.tbxAmount.Size = new System.Drawing.Size(116, 20);
-            this.tbxAmount.TabIndex = 4;
+            this.tbxPrice.Location = new System.Drawing.Point(107, 92);
+            this.tbxPrice.Name = "tbxPrice";
+            this.tbxPrice.Size = new System.Drawing.Size(116, 20);
+            this.tbxPrice.TabIndex = 4;
             // 
             // cbxActive
             // 
@@ -134,7 +134,7 @@
             this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.cbxActive);
-            this.Controls.Add(this.tbxAmount);
+            this.Controls.Add(this.tbxPrice);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblActive);
             this.Controls.Add(this.lblPrice);
@@ -155,7 +155,7 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.TextBox tbxName;
-        private System.Windows.Forms.TextBox tbxAmount;
+        private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.CheckBox cbxActive;
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.PictureBox pbxDelete;
