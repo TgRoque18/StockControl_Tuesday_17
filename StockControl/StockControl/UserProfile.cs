@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockControl.Class
+namespace StockControl
 {
-    public class Category
+   public class UserProfile
     {
         private int id;
         private string name;

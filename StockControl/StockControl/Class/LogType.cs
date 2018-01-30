@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockControl.Class
 {
-    public class Category
+        public class LogType
     {
         private int id;
         private string name;

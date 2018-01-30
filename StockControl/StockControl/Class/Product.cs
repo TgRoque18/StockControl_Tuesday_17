@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace StockControl.Class
 {
-    public class Category
+        public class Product
     {
         private int id;
         private string name;
+        private float price;
         private bool active;
 
         public int Id
@@ -35,6 +36,19 @@ namespace StockControl.Class
             set
             {
                 name = value;
+            }
+        }
+
+        public float Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
             }
         }
 
