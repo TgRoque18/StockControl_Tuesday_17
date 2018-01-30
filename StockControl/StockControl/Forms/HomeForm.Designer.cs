@@ -76,6 +76,7 @@
             this.pbxStock.Size = new System.Drawing.Size(51, 50);
             this.pbxStock.TabIndex = 2;
             this.pbxStock.TabStop = false;
+            this.pbxStock.Click += new System.EventHandler(this.pbxStock_Click);
             // 
             // pbxUser
             // 
@@ -97,7 +98,7 @@
             this.pbxUserProfile.Size = new System.Drawing.Size(49, 50);
             this.pbxUserProfile.TabIndex = 4;
             this.pbxUserProfile.TabStop = false;
-         
+            this.pbxUserProfile.Click += new System.EventHandler(this.pbxUserProfile_Click);
             // 
             // pbxLog
             // 
