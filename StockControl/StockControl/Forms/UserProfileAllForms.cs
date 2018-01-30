@@ -23,5 +23,12 @@ namespace StockControl.Forms
             home.Show();
             this.Hide();
         }
+
+        private void pbxAdd_Click(object sender, EventArgs e)
+        {
+            UserProfileDetailsForms userProfileDetailsForms = new UserProfileDetailsForms();
+            userProfileDetailsForms.Show();
+            this.Hide();
+        }
     }
 }
