@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductAllForm));
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pbxSearch = new System.Windows.Forms.PictureBox();
             this.dtgProduct = new System.Windows.Forms.DataGridView();
             this.pbxBack = new System.Windows.Forms.PictureBox();
@@ -53,11 +51,6 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(146, 20);
             this.tbxName.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // pbxSearch
             // 
@@ -86,6 +79,7 @@
             this.pbxBack.Size = new System.Drawing.Size(31, 28);
             this.pbxBack.TabIndex = 4;
             this.pbxBack.TabStop = false;
+            this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
             // 
             // pbxAdd
             // 
@@ -96,6 +90,7 @@
             this.pbxAdd.Size = new System.Drawing.Size(31, 28);
             this.pbxAdd.TabIndex = 5;
             this.pbxAdd.TabStop = false;
+            this.pbxAdd.Click += new System.EventHandler(this.pbxAdd_Click);
             // 
             // pbxEdit
             // 
@@ -155,7 +150,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbxName;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.PictureBox pbxSearch;
         private System.Windows.Forms.DataGridView dtgProduct;
         private System.Windows.Forms.PictureBox pbxBack;

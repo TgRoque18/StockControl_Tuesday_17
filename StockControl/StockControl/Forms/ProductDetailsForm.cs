@@ -10,25 +10,28 @@ using System.Windows.Forms;
 
 namespace StockControl.Forms
 {
-    public partial class ProductAllForm : Form
+    public partial class ProductDetailsForm : Form
     {
-        public ProductAllForm()
+        public ProductDetailsForm()
         {
             InitializeComponent();
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            Home homeForm = new Home();
-            homeForm.Show();
+            ProductAllForm productAllForm = new ProductAllForm();
+            productAllForm.Show();
             this.Hide();
         }
 
-        private void pbxAdd_Click(object sender, EventArgs e)
+        private void pbxSave_Click(object sender, EventArgs e)
         {
-            ProductDetailsForm productDetailsForm = new ProductDetailsForm();
-            productDetailsForm.Show();
-            this.Hide();
+
+        }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
