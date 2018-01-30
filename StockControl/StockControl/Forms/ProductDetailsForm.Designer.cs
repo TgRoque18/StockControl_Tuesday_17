@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblName = new System.Windows.Forms.Label();
-            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.lblActive = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxAmount = new System.Windows.Forms.TextBox();
@@ -51,14 +51,14 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Nome :";
             // 
-            // lblAmount
+            // lblPrice
             // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(12, 92);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(68, 13);
-            this.lblAmount.TabIndex = 1;
-            this.lblAmount.Text = "Quantidade :";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(12, 92);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(41, 13);
+            this.lblPrice.TabIndex = 1;
+            this.lblPrice.Text = "Preço :";
             // 
             // lblActive
             // 
@@ -137,7 +137,7 @@
             this.Controls.Add(this.tbxAmount);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblActive);
-            this.Controls.Add(this.lblAmount);
+            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
             this.Name = "ProductDetailsForm";
             this.Text = "Produto";
@@ -152,7 +152,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.TextBox tbxAmount;
