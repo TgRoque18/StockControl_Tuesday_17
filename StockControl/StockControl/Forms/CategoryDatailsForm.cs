@@ -22,6 +22,13 @@ namespace StockControl.Forms
             InitializeComponent();
         }
 
+        public CategoryDatailsForm(int idCategory)
+        {
+            InitializeComponent();
+
+            lblId.Text = idCategory.ToString();
+        }
+
         private void pbxBack_Click(object sender, EventArgs e)
         {
             CategoryAllForm categoryAllForm = new CategoryAllForm();
@@ -78,6 +85,46 @@ namespace StockControl.Forms
         {
             tbxName.Text = "";
             cbxAtivo.Checked = false;
+        }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+                    string sql = "DELETE FROM CATEGORY WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", this.lblId.Text));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Removido com sucesso!");
+
+                    //LogHelper log = new LogHelper();
+                    //log.Insert("User Remove");
+                }
+                catch (Exception ex)
+                {
+                    //Tratar exce��es
+                    MessageBox.Show("Erro ao remover categoria!" + ex.Message);
+                    //throw;
+
+                    //LogHelper logBD = new LogHelper();
+                    //logBD.PrintLog(Convert.ToString(ex));
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
         }
     }
 }
