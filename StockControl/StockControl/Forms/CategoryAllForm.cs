@@ -79,5 +79,39 @@ namespace StockControl.Forms
             categoryDetailsForm.Show();
             this.Hide();
         }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+
+            int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                //Conectar
+                sqlConnect.Open();
+                string sql = "DELETE FROM CATEGORY WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Removido com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                //Tratar exce��es
+                MessageBox.Show("Erro ao remover categoria!" + "\n\n" + ex.Message);
+                throw;
+            }
+            finally
+            {
+                //Fechar
+                sqlConnect.Close();
+            }
+        }
     }
 }
