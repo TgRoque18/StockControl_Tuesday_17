@@ -95,6 +95,7 @@
             this.pbxSave.Size = new System.Drawing.Size(36, 35);
             this.pbxSave.TabIndex = 5;
             this.pbxSave.TabStop = false;
+            this.pbxSave.Click += new System.EventHandler(this.pbxSave_Click);
             // 
             // pbxDelete
             // 
