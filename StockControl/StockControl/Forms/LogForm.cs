@@ -22,7 +22,7 @@ namespace StockControl.Forms
             Home home = new Home();
             home.Show();
             this.Hide();
-          
         }
+
     }
 }
