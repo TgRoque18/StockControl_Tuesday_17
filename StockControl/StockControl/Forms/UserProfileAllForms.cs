@@ -111,5 +111,15 @@ namespace StockControl.Forms
                 sqlConnect.Close();
             }
         }
+
+        private void pbxEdit_Click(object sender, EventArgs e)
+        {
+            int idUserProfile = Int32.Parse(dgvUserProfile.SelectedRows[0].Cells[0].Value.ToString());
+
+            UserProfileDetailsForms UserProfileDetails = new UserProfileDetailsForms(idUserProfile);
+            UserProfileDetails.Show();
+
+            this.Close();
+        }
     }
 }

@@ -54,6 +54,7 @@
             this.pbxEdit.Size = new System.Drawing.Size(54, 50);
             this.pbxEdit.TabIndex = 16;
             this.pbxEdit.TabStop = false;
+            this.pbxEdit.Click += new System.EventHandler(this.pbxEdit_Click);
             // 
             // pbxDelete
             // 

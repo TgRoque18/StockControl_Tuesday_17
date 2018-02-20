@@ -37,6 +37,7 @@
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
@@ -78,7 +79,7 @@
             // 
             // tbxPrice
             // 
-            this.tbxPrice.Location = new System.Drawing.Point(107, 92);
+            this.tbxPrice.Location = new System.Drawing.Point(91, 92);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(116, 20);
             this.tbxPrice.TabIndex = 4;
@@ -125,11 +126,21 @@
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(8, 167);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 9;
+            this.lblId.Visible = false;
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 247);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.pbxSave);
             this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.pbxBack);
@@ -160,5 +171,6 @@
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.PictureBox pbxDelete;
         private System.Windows.Forms.PictureBox pbxSave;
+        private System.Windows.Forms.Label lblId;
     }
 }

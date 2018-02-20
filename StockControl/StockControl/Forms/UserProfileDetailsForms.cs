@@ -21,6 +21,11 @@ namespace StockControl.Forms
         {
             InitializeComponent();
         }
+        public UserProfileDetailsForms(int idUserProfile)
+        {
+            InitializeComponent();
+            lblId.Text = idUserProfile.ToString();
+        }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
@@ -84,9 +89,46 @@ namespace StockControl.Forms
             cbxActive.Checked = false;
         }
 
-        private void pbxDelete_Click(object sender, EventArgs e)
-        {
+      
 
+        private void pbxDelete_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblId.Text)) 
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+                    string sql = "DELETE FROM USER_PROFILE WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", this.lblId.Text));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Removido com sucesso!");
+
+                    //LogHelper log = new LogHelper();
+                    //log.Insert("User Remove");
+                }
+                catch (Exception ex)
+                {
+                    //Tratar exce��es
+                    MessageBox.Show("Erro ao remover perfil de usuário!" + ex.Message);
+                    //throw;
+
+                    //LogHelper logBD = new LogHelper();
+                    //logBD.PrintLog(Convert.ToString(ex));
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
         }
     }
 }

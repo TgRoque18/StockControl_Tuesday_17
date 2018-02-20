@@ -37,6 +37,7 @@
             this.lblActive = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
@@ -62,6 +63,7 @@
             this.pbxDelete.Size = new System.Drawing.Size(32, 29);
             this.pbxDelete.TabIndex = 16;
             this.pbxDelete.TabStop = false;
+            this.pbxDelete.Click += new System.EventHandler(this.pbxDelete_Click);
             // 
             // pbxBack
             // 
@@ -124,11 +126,21 @@
             this.lblName.TabIndex = 9;
             this.lblName.Text = "Nome :";
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(19, 157);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 18;
+            this.lblId.Visible = false;
+            // 
             // StockDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(217, 242);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.pbxSave);
             this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.pbxBack);
@@ -159,5 +171,6 @@
         private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblId;
     }
 }
