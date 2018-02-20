@@ -62,7 +62,7 @@ namespace StockControl.Forms
             catch (Exception ex)
             {
                 //Tratar exce��es
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                MessageBox.Show("Erro ao adicionar perfil!" + ex.Message);
                 CleanData();
             }
             finally
