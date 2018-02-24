@@ -39,12 +39,12 @@
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.tbxConfirm = new System.Windows.Forms.TextBox();
-            this.tbxProfile = new System.Windows.Forms.TextBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
+            this.cmbUserProfile = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
@@ -132,13 +132,6 @@
             this.tbxConfirm.Size = new System.Drawing.Size(100, 20);
             this.tbxConfirm.TabIndex = 10;
             // 
-            // tbxProfile
-            // 
-            this.tbxProfile.Location = new System.Drawing.Point(119, 178);
-            this.tbxProfile.Name = "tbxProfile";
-            this.tbxProfile.Size = new System.Drawing.Size(100, 20);
-            this.tbxProfile.TabIndex = 11;
-            // 
             // pbxBack
             // 
             this.pbxBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxBack.BackgroundImage")));
@@ -190,17 +183,25 @@
             this.lblId.TabIndex = 17;
             this.lblId.Visible = false;
             // 
+            // cmbUserProfile
+            // 
+            this.cmbUserProfile.FormattingEnabled = true;
+            this.cmbUserProfile.Location = new System.Drawing.Point(119, 182);
+            this.cmbUserProfile.Name = "cmbUserProfile";
+            this.cmbUserProfile.Size = new System.Drawing.Size(100, 21);
+            this.cmbUserProfile.TabIndex = 18;
+            // 
             // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 394);
+            this.Controls.Add(this.cmbUserProfile);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pbxSave);
             this.Controls.Add(this.pbxBack);
-            this.Controls.Add(this.tbxProfile);
             this.Controls.Add(this.tbxConfirm);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxEmail);
@@ -233,11 +234,11 @@
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.TextBox tbxConfirm;
-        private System.Windows.Forms.TextBox tbxProfile;
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.PictureBox pbxSave;
         private System.Windows.Forms.PictureBox pbxDelete;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.ComboBox cmbUserProfile;
     }
 }

@@ -13,6 +13,7 @@ namespace StockControl.Class
         private string password;
         private string email;
         private bool active;
+        private UserProfile userProfile;
 
         public int Id
         {
@@ -79,8 +80,18 @@ namespace StockControl.Class
             }
         }
 
+        public UserProfile UserProfile
+        {
+            get
+            {
+                return userProfile;
+            }
 
-
+            set
+            {
+                userProfile = value;
+            }
+        }
     }
 
 }
