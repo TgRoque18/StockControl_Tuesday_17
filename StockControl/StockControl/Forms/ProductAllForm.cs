@@ -44,7 +44,7 @@ namespace StockControl.Forms
             {
                 sqlConnect.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM STOCK", sqlConnect);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT", sqlConnect);
                 // SqlDataReader reader = cmd.ExecuteReader();
 
                 cmd.ExecuteNonQuery();
