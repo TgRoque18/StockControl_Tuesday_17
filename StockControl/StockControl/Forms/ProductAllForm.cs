@@ -99,6 +99,7 @@ namespace StockControl.Forms
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Removido com sucesso!");
+                ShowData();
             }
             catch (Exception ex)
             {
