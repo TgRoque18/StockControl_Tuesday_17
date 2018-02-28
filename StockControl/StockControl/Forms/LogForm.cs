@@ -60,6 +60,37 @@ namespace StockControl.Forms
             }
         }
 
+        public void SalvarLog(string description)
+        {
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                //Conectar
+                sqlConnect.Open();
+                string sql = "INSERT INTO LOG(DESCRIPTION, DATE) VALUES (@description, @date)";
+                //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
+                //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@description", description));
+                cmd.Parameters.Add(new SqlParameter("@date", DateTime.Now));
+
+                cmd.ExecuteNonQuery();                
+            }
+            catch (Exception ex)
+            {
+                //Tratar exce��es
+                MessageBox.Show("Erro ao adicionar log!" + ex.Message);               
+            }
+            finally
+            {
+                //Fechar
+                sqlConnect.Close();
+
+            }
+        }
         private void ResizeDataGridView()
         {
             dgvLog.Columns["ID"].Visible = false;
