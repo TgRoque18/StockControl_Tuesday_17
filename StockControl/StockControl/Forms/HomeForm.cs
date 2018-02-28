@@ -39,12 +39,7 @@ namespace StockControl
             this.Hide();
         }
 
-        private void pbxCategory_Click(object sender, EventArgs e)
-        {
-            CategoryAllForm categoryAllForm = new CategoryAllForm();
-            categoryAllForm.Show();
-            this.Hide();
-        }
+       
 
         private void pbxUserProfile_Click(object sender, EventArgs e)
         {
