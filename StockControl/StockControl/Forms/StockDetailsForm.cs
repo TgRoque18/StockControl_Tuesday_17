@@ -30,8 +30,8 @@ namespace StockControl.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            Home homeForm = new Home();
-            homeForm.Show();
+            StockAllForm stockForm = new StockAllForm();
+            stockForm.Show();
             this.Hide();
         }
 
