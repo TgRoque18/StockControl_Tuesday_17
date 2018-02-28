@@ -34,22 +34,19 @@
             this.pbxAdd = new System.Windows.Forms.PictureBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
             this.dgvCategory = new System.Windows.Forms.DataGridView();
-            this.pbxSearch = new System.Windows.Forms.PictureBox();
-            this.tbxSearch = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // pbxEdit
             // 
             this.pbxEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxEdit.BackgroundImage")));
             this.pbxEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxEdit.Location = new System.Drawing.Point(192, 215);
+            this.pbxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxEdit.Location = new System.Drawing.Point(192, 202);
             this.pbxEdit.Name = "pbxEdit";
             this.pbxEdit.Size = new System.Drawing.Size(34, 36);
             this.pbxEdit.TabIndex = 16;
@@ -60,7 +57,8 @@
             // 
             this.pbxDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDelete.BackgroundImage")));
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxDelete.Location = new System.Drawing.Point(241, 215);
+            this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxDelete.Location = new System.Drawing.Point(241, 202);
             this.pbxDelete.Name = "pbxDelete";
             this.pbxDelete.Size = new System.Drawing.Size(34, 36);
             this.pbxDelete.TabIndex = 15;
@@ -71,7 +69,8 @@
             // 
             this.pbxAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxAdd.BackgroundImage")));
             this.pbxAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxAdd.Location = new System.Drawing.Point(141, 215);
+            this.pbxAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxAdd.Location = new System.Drawing.Point(141, 202);
             this.pbxAdd.Name = "pbxAdd";
             this.pbxAdd.Size = new System.Drawing.Size(34, 36);
             this.pbxAdd.TabIndex = 14;
@@ -82,7 +81,8 @@
             // 
             this.pbxBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxBack.BackgroundImage")));
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxBack.Location = new System.Drawing.Point(14, 215);
+            this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxBack.Location = new System.Drawing.Point(14, 202);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(34, 36);
             this.pbxBack.TabIndex = 13;
@@ -95,38 +95,12 @@
             this.dgvCategory.AllowUserToDeleteRows = false;
             this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCategory.Location = new System.Drawing.Point(14, 50);
+            this.dgvCategory.Location = new System.Drawing.Point(18, 23);
             this.dgvCategory.MultiSelect = false;
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategory.Size = new System.Drawing.Size(257, 150);
             this.dgvCategory.TabIndex = 12;
-            // 
-            // pbxSearch
-            // 
-            this.pbxSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxSearch.BackgroundImage")));
-            this.pbxSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxSearch.Location = new System.Drawing.Point(251, 9);
-            this.pbxSearch.Name = "pbxSearch";
-            this.pbxSearch.Size = new System.Drawing.Size(20, 20);
-            this.pbxSearch.TabIndex = 11;
-            this.pbxSearch.TabStop = false;
-            // 
-            // tbxSearch
-            // 
-            this.tbxSearch.Location = new System.Drawing.Point(89, 9);
-            this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(138, 20);
-            this.tbxSearch.TabIndex = 10;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(21, 16);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(53, 13);
-            this.lblSearch.TabIndex = 9;
-            this.lblSearch.Text = "Pesquisar";
             // 
             // CategoryAllForm
             // 
@@ -138,9 +112,6 @@
             this.Controls.Add(this.pbxAdd);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.dgvCategory);
-            this.Controls.Add(this.pbxSearch);
-            this.Controls.Add(this.tbxSearch);
-            this.Controls.Add(this.lblSearch);
             this.Name = "CategoryAllForm";
             this.Text = "Categoria";
             ((System.ComponentModel.ISupportInitialize)(this.pbxEdit)).EndInit();
@@ -148,9 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -161,8 +130,5 @@
         private System.Windows.Forms.PictureBox pbxAdd;
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.DataGridView dgvCategory;
-        private System.Windows.Forms.PictureBox pbxSearch;
-        private System.Windows.Forms.TextBox tbxSearch;
-        private System.Windows.Forms.Label lblSearch;
     }
 }
