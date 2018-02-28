@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockControl.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,11 +26,61 @@ namespace StockControl.Forms
         }
 
         public ProductDetailsForm(int idProduct)
-
         {
             InitializeComponent();
-            lblId.Text = idProduct.ToString();
+
+            lblId.Text = idProduct.ToString(); //-------
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [USER] WHERE ID = @id", sqlConnect);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idProduct));
+
+                    Product product = new Product(); //------
+
+                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    {
+                        while (reader.Read())
+                        {
+                            product.Id = Int32.Parse(reader["ID"].ToString());
+                            product.Name = reader["NAME"].ToString();
+                            product.Active = bool.Parse(reader["ACTIVE"].ToString());
+                            product.Price = float.Parse(reader["PRICE"].ToString());
+
+
+
+                        }
+                    }
+
+                    tbxName.Text = product.Name;
+                    cbxActive.Checked = product.Active;
+                    tbxPrice.Text = product.Price.ToString();
+
+
+
+                }
+                catch (Exception EX)
+                {
+                    //Tratar exce��es
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
         }
+      
         private void pbxBack_Click(object sender, EventArgs e)
 
         {
@@ -41,42 +92,80 @@ namespace StockControl.Forms
         private void pbxSave_Click(object sender, EventArgs e)
 
         {
-            GetData();
-
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-
-            try
+            if (string.IsNullOrEmpty(lblId.Text)) //-----
             {
-                //Conectar
-                sqlConnect.Open();
-                string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE) VALUES (@name, @price, @active)";
-                //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
-                //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
+                GetData();
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
-                cmd.Parameters.Add(new SqlParameter("@name", name));
-                cmd.Parameters.Add(new SqlParameter("@price", price));
-                cmd.Parameters.Add(new SqlParameter("@active", active));
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE) VALUES (@name, @price, @active)";
+                    //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
+                    //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
 
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
-                MessageBox.Show("Adicionado com sucesso!");
-                CleanData();
-               
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@price", price));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Adicionado com sucesso!");
+                    CleanData();
+
+                }
+                catch (Exception ex)
+                {
+                    //Tratar exce��es
+                    MessageBox.Show("Erro ao adicionar produto!" + ex.Message);
+                    CleanData();
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //Tratar exce��es
-                MessageBox.Show("Erro ao adicionar perfil!" + ex.Message);
-                CleanData();
-            }
-            finally
-            {
-                //Fechar
-                sqlConnect.Close();
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
+                
+
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE PRODUCT SET NAME=@name, ACTIVE=@active, PRICE=@price WHERE ID=@id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", this.tbxName.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", this.cbxActive.Checked));
+                    cmd.Parameters.Add(new SqlParameter("@price", this.tbxPrice.Text));
+                    cmd.Parameters.Add(new SqlParameter("@id", this.lblId.Text));
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Alterações salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                    ProductAllForm productAllForm = new ProductAllForm();
+                    productAllForm.Show();
+                    this.Hide();
+                }
             }
+            
         }
 
         void GetData()
