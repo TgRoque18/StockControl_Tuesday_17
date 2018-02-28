@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockControl.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,6 +101,7 @@ namespace StockControl.Forms
 
                 MessageBox.Show("Removido com sucesso!");
                 ShowData();
+                Log.SalvarLog("Produto removido");
             }
             catch (Exception ex)
             {
