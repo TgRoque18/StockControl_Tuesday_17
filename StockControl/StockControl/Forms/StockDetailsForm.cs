@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockControl.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,56 +25,159 @@ namespace StockControl.Forms
         }
         public StockDetailsForm(int idStock)
         {
+       
             InitializeComponent();
-            lblId.Text = idStock.ToString();
+
+            lblId.Text = idStock.ToString(); //-------
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM STOCK WHERE ID = @id", sqlConnect);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idStock));
+
+                    Stock stock = new Stock(); //------
+
+                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    {
+                        while (reader.Read())
+                        {
+                            stock.Id = Int32.Parse(reader["ID"].ToString());
+                            stock.Amount = Int32.Parse(reader["QUANTITY"].ToString());
+
+                            if (Int32.Parse(reader["ACTIVE"].ToString()) == 0)
+                            {
+                                stock.Active = false;
+                            }
+                            else
+                            {
+                                stock.Active = true;
+                            }
+                               
+                            stock.Name = reader["NAME"].ToString();
+                            
+                            
+
+                        }
+                    }
+
+                    tbxName.Text = stock.Name;
+                    cbxActive.Checked = stock.Active;
+                    
+
+                    //Busca o index baseado no Select
+                    
+                   
+
+                    //Inicializa o dropDown com as informa��es do banco
+                    
+
+                }
+                catch (Exception EX)
+                {
+                    //Tratar exce��es
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
+
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            StockAllForm stockForm = new StockAllForm();
-            stockForm.Show();
+            StockAllForm stockAllForm = new StockAllForm();
+            stockAllForm.Show();
             this.Hide();
         }
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-
-            GetData();
-
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-
-            try
+            if (string.IsNullOrEmpty(lblId.Text)) //-----
             {
-                //Conectar
-                sqlConnect.Open();
-                string sql = "INSERT INTO STOCK(QUANTITY, ACTIVE, NAME) VALUES (@quantity, @active, @name)";
-                //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
-                //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+                GetData();
 
-                cmd.Parameters.Add(new SqlParameter("@quantity", quantity));
-                cmd.Parameters.Add(new SqlParameter("@active", active));
-                cmd.Parameters.Add(new SqlParameter("@name", name));
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO STOCK(QUANTITY, ACTIVE, NAME) VALUES (@quantity, @active, @name)";
+                    //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
+                    //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
 
-                MessageBox.Show("Adicionado com sucesso!");
-                CleanData();
-                
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@quantity", quantity));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Adicionado com sucesso!");
+                    CleanData();
+
+                }
+                catch (Exception ex)
+                {
+                    //Tratar exce��es
+                    MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                    CleanData();
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //Tratar exce��es
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
-                CleanData();
-            }
-            finally
-            {
-                //Fechar
-                sqlConnect.Close();
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE STOCK SET QUANTITY = @quantity, ACTIVE = @active, NAME = @NAME WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", this.tbxName.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", this.cbxActive.Checked));
+                    cmd.Parameters.Add(new SqlParameter("@quantity", this.tbxAmount));
+                    cmd.Parameters.Add(new SqlParameter("@id", this.lblId.Text));
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Alterações salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar este estoque!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+
+                    StockAllForm stockAllForm = new StockAllForm();
+                    stockAllForm.Show();
+                    this.Hide();
+                }
             }
+
         }
         void GetData()
         {
