@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockControl.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,14 +21,64 @@ namespace StockControl.Forms
         public CategoryDatailsForm()
         {
             InitializeComponent();
-        }
 
+        }
         public CategoryDatailsForm(int idCategory)
         {
             InitializeComponent();
 
-            lblId.Text = idCategory.ToString();
+            lblId.Text = idCategory.ToString(); //-------
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = @id", sqlConnect);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+
+                    Category category = new Category(); //------
+
+                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    {
+                        while (reader.Read())
+                        {
+                            category.Id = Int32.Parse(reader["ID"].ToString());
+                            category.Name = reader["NAME"].ToString();
+                            category.Active = bool.Parse(reader["ACTIVE"].ToString());
+
+                          
+
+                        }
+                    }
+
+                    tbxName.Text = category.Name;
+                    cbxActive.Checked = category.Active;
+
+
+                  
+
+                }
+                catch (Exception EX)
+                {
+                    //Tratar exce��es
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
         }
+
+     
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
@@ -38,53 +89,87 @@ namespace StockControl.Forms
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-
-            GetData();
-
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-
-            try
+            if (string.IsNullOrEmpty(lblId.Text)) //-----
             {
-                //Conectar
-                sqlConnect.Open();
-                string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (@name, @active)";
-                //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
-                //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
+                GetData();
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
-                cmd.Parameters.Add(new SqlParameter("@name", name));
-                cmd.Parameters.Add(new SqlParameter("@active", active));
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (@name, @active)";
+                    //string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (" 
+                    //    + this.tbxName.Text + "," + this.cbxActive.Checked + ")";
 
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
-                MessageBox.Show("Adicionado com sucesso!");
-                CleanData();
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
 
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Adicionado com sucesso!");
+                    CleanData();
+
+                }
+                catch (Exception ex)
+                {
+                    //Tratar exce��es
+                    MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                    CleanData();
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //Tratar exce��es
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
-                CleanData();
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE CATEGORY SET NAME = @name, ACTIVE = @active WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", this.tbxName.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", this.cbxActive.Checked));
+                    cmd.Parameters.Add(new SqlParameter("@id", this.lblId.Text));
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Altereções salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                    CategoryAllForm categoryAllForm = new CategoryAllForm();
+                    categoryAllForm.Show();
+                    this.Hide();
+                }
             }
-            finally
-            {
-                //Fechar
-                sqlConnect.Close();
-            }
+        
         }
 
         void GetData()
         {
             name = tbxName.Text;
-            active = cbxAtivo.Checked;
+            active = cbxActive.Checked;
         }
 
         void CleanData()
         {
             tbxName.Text = "";
-            cbxAtivo.Checked = false;
+            cbxActive.Checked = false;
         }
 
         private void pbxDelete_Click(object sender, EventArgs e)

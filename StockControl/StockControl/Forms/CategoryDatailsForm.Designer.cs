@@ -32,7 +32,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblActive = new System.Windows.Forms.Label();
-            this.cbxAtivo = new System.Windows.Forms.CheckBox();
+            this.cbxActive = new System.Windows.Forms.CheckBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.pbxDelete = new System.Windows.Forms.PictureBox();
@@ -67,19 +67,20 @@
             this.lblActive.TabIndex = 2;
             this.lblActive.Text = "Ativo:";
             // 
-            // cbxAtivo
+            // cbxActive
             // 
-            this.cbxAtivo.AutoSize = true;
-            this.cbxAtivo.Location = new System.Drawing.Point(96, 99);
-            this.cbxAtivo.Name = "cbxAtivo";
-            this.cbxAtivo.Size = new System.Drawing.Size(15, 14);
-            this.cbxAtivo.TabIndex = 3;
-            this.cbxAtivo.UseVisualStyleBackColor = true;
+            this.cbxActive.AutoSize = true;
+            this.cbxActive.Location = new System.Drawing.Point(96, 99);
+            this.cbxActive.Name = "cbxActive";
+            this.cbxActive.Size = new System.Drawing.Size(15, 14);
+            this.cbxActive.TabIndex = 3;
+            this.cbxActive.UseVisualStyleBackColor = true;
             // 
             // pbxBack
             // 
             this.pbxBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxBack.BackgroundImage")));
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxBack.Location = new System.Drawing.Point(12, 202);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(36, 35);
@@ -91,6 +92,7 @@
             // 
             this.pbxSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxSave.BackgroundImage")));
             this.pbxSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxSave.Location = new System.Drawing.Point(179, 202);
             this.pbxSave.Name = "pbxSave";
             this.pbxSave.Size = new System.Drawing.Size(36, 35);
@@ -102,6 +104,7 @@
             // 
             this.pbxDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDelete.BackgroundImage")));
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxDelete.Location = new System.Drawing.Point(221, 202);
             this.pbxDelete.Name = "pbxDelete";
             this.pbxDelete.Size = new System.Drawing.Size(36, 35);
@@ -127,7 +130,7 @@
             this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.pbxSave);
             this.Controls.Add(this.pbxBack);
-            this.Controls.Add(this.cbxAtivo);
+            this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.lblActive);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblName);
@@ -146,7 +149,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblActive;
-        private System.Windows.Forms.CheckBox cbxAtivo;
+        private System.Windows.Forms.CheckBox cbxActive;
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.PictureBox pbxSave;
         private System.Windows.Forms.PictureBox pbxDelete;
